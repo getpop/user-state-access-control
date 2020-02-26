@@ -51,12 +51,12 @@ abstract class AbstractMaybeDisableDirectivesBasedOnUserStatePrivateSchemaHookSe
     protected function getDirectiveResolverClasses(): array
     {
         // Obtain all entries for the current combination of typeResolver/fieldName
-        return array_map(
+        return array_values(array_unique(array_map(
             function($entry) {
                 return $entry[0];
             },
             $this->getMatchingEntries()
-        );
+        )));
     }
 
     protected abstract function getEntryValue(): string;
@@ -72,11 +72,11 @@ abstract class AbstractMaybeDisableDirectivesBasedOnUserStatePrivateSchemaHookSe
      */
     protected function getMatchingEntriesFromConfiguration(array $configuredEntryList, string $value): array
     {
-        return array_values(array_unique(array_filter(
+        return array_filter(
             $configuredEntryList,
             function($configuredEntry) use($value) {
                 return $configuredEntry[1] == $value;
             }
-        )));
+        );
     }
 }
