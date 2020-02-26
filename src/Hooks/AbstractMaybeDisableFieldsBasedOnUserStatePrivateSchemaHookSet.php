@@ -5,7 +5,7 @@ use PoP\UserStateAccessControl\ComponentConfiguration;
 use PoP\UserState\Facades\UserStateTypeDataResolverFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\FieldResolvers\FieldResolverInterface;
-use PoP\API\Hooks\AbstractMaybeDisableFieldsInPrivateSchemaHookSet;
+use PoP\AccessControl\Hooks\AbstractMaybeDisableFieldsInPrivateSchemaHookSet;
 use PoP\UserStateAccessControl\Hooks\MaybeDisableFieldsIfConditionPrivateSchemaHookSetTrait;
 
 abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet extends AbstractMaybeDisableFieldsInPrivateSchemaHookSet
