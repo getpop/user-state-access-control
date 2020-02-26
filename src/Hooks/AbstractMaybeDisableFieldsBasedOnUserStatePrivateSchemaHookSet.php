@@ -10,9 +10,6 @@ use PoP\UserStateAccessControl\Hooks\MaybeDisableFieldsIfConditionPrivateSchemaH
 
 abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet extends AbstractMaybeDisableFieldsInPrivateSchemaHookSet
 {
-    public const CONFIGURATION_VALUE_IN = 'in';
-    public const CONFIGURATION_VALUE_OUT = 'out';
-
     use MaybeDisableFieldsIfConditionPrivateSchemaHookSetTrait;
 
     /**

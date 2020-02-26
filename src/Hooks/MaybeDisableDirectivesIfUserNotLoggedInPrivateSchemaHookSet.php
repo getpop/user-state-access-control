@@ -1,6 +1,8 @@
 <?php
 namespace PoP\UserStateAccessControl\Hooks;
 
+use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
+
 class MaybeDisableDirectivesIfUserNotLoggedInPrivateSchemaHookSet extends AbstractMaybeDisableDirectivesBasedOnUserStatePrivateSchemaHookSet
 {
     protected function enableBasedOnUserState(bool $isUserLoggedIn): bool
@@ -10,6 +12,6 @@ class MaybeDisableDirectivesIfUserNotLoggedInPrivateSchemaHookSet extends Abstra
 
     protected function getEntryValue(): string
     {
-        return AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet::CONFIGURATION_VALUE_IN;
+        return UserStates::IN;
     }
 }

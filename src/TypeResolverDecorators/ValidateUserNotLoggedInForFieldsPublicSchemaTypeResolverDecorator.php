@@ -1,14 +1,14 @@
 <?php
 namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
+use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
 use PoP\UserState\DirectiveResolvers\ValidateIsUserNotLoggedInDirectiveResolver;
-use PoP\UserStateAccessControl\Hooks\AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet;
 
 class ValidateUserNotLoggedInForFieldsPublicSchemaTypeResolverDecorator extends AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolverDecorator
 {
     protected function removeFieldNameBasedOnUserState(array $states): bool
     {
-        return in_array(AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet::CONFIGURATION_VALUE_OUT, $states);
+        return in_array(UserStates::OUT, $states);
     }
     protected function getValidateUserStateDirectiveResolverClass(): string
     {
