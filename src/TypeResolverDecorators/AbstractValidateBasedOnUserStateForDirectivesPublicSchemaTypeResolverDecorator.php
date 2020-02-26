@@ -50,6 +50,6 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeReso
 
     public function enabled(TypeResolverInterface $typeResolver): bool
     {
-        return parent::enabled($typeResolver) && !empty(self::getConfiguredEntryList());
+        return parent::enabled($typeResolver) && !empty(static::getConfiguredEntryList());
     }
 }

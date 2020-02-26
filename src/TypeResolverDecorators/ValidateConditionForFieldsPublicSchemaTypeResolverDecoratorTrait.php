@@ -10,7 +10,7 @@ trait ValidateConditionForFieldsPublicSchemaTypeResolverDecoratorTrait
 
     public function enabled(TypeResolverInterface $typeResolver): bool
     {
-        return parent::enabled($typeResolver) && !empty(self::getConfiguredEntryList());
+        return parent::enabled($typeResolver) && !empty(static::getConfiguredEntryList());
     }
 
     public static function getClassesToAttachTo(): array
@@ -21,7 +21,7 @@ trait ValidateConditionForFieldsPublicSchemaTypeResolverDecoratorTrait
                 // So, in position [0], will always be the $typeResolverClass
                 return $configuredEntry[0];
             },
-            self::getConfiguredEntryList()
+            static::getConfiguredEntryList()
         );
     }
 }

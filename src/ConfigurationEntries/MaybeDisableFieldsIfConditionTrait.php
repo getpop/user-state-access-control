@@ -25,7 +25,7 @@ trait MaybeDisableFieldsIfConditionTrait
                 // So, in position [1], will always be the $fieldName
                 return $configuredEntry[1];
             },
-           self::getConfiguredEntryList()
+           static::getConfiguredEntryList()
         );
     }
 
