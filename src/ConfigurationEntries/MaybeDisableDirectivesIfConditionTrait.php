@@ -10,7 +10,7 @@ trait MaybeDisableDirectivesIfConditionTrait
      *
      * @return array
      */
-    abstract protected static function getConfiguredEntryList(): array;
+    abstract protected function getConfiguredEntryList(): array;
 
     /**
      * Directive names to remove
@@ -19,14 +19,13 @@ trait MaybeDisableDirectivesIfConditionTrait
      */
     protected function getDirectiveResolverClasses(): array
     {
-        $calledClass = get_called_class();
         return array_map(
             function($configuredEntry) {
                 // The entry has format [directiveResolverClass, value]
                 // So, in position [0], will always be the $directiveResolverClass
                 return $configuredEntry[0];
             },
-           $calledClass::getConfiguredEntryList()
+           $this->getConfiguredEntryList()
         );
     }
 

@@ -11,8 +11,7 @@ trait ValidateConditionForDirectivesPublicSchemaTypeResolverDecoratorTrait
 
     public function enabled(TypeResolverInterface $typeResolver): bool
     {
-        $calledClass = get_called_class();
-        return parent::enabled($typeResolver) && !empty($calledClass::getConfiguredEntryList());
+        return parent::enabled($typeResolver) && !empty($this->getConfiguredEntryList());
     }
 
     /**
