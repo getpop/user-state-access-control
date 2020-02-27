@@ -25,7 +25,6 @@ class ConditionalComponent
     public static function boot()
     {
         // Initialize classes
-        ContainerBuilderUtils::instantiateNamespaceServices(__NAMESPACE__.'\\Hooks');
         ContainerBuilderUtils::attachTypeResolverDecoratorsFromNamespace(__NAMESPACE__.'\\TypeResolverDecorators');
     }
 }
