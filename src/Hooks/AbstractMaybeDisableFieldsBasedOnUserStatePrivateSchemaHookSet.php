@@ -23,7 +23,6 @@ abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet ex
     {
         $accessControlManager = AccessControlManagerFacade::getInstance();
         return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
-        // return ComponentConfiguration::getRestrictedFieldsByUserState();
     }
 
     /**

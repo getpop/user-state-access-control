@@ -16,7 +16,6 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeReso
     {
         $accessControlManager = AccessControlManagerFacade::getInstance();
         return $accessControlManager->getEntriesForDirectives(AccessControlGroups::STATE);
-        // return ComponentConfiguration::getRestrictedDirectivesByUserState();
     }
 
     public function getMandatoryDirectivesForDirectives(TypeResolverInterface $typeResolver): array

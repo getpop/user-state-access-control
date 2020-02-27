@@ -16,7 +16,6 @@ abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolver
     {
         $accessControlManager = AccessControlManagerFacade::getInstance();
         return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
-        // return ComponentConfiguration::getRestrictedFieldsByUserState();
     }
 
     public function getMandatoryDirectivesForFields(TypeResolverInterface $typeResolver): array
