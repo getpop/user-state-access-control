@@ -25,8 +25,8 @@ abstract class AbstractMaybeDisableDirectivesBasedOnUserStatePrivateSchemaHookSe
     protected function getMatchingEntries(): array
     {
         return $this->getMatchingEntriesFromConfiguration(
-            $this->getConfiguredEntryList(),
-            $this->getEntryValue()
+            $this->getEntryList(),
+            $this->getRequiredEntryValue()
         );
     }
 
@@ -35,7 +35,7 @@ abstract class AbstractMaybeDisableDirectivesBasedOnUserStatePrivateSchemaHookSe
      *
      * @return array
      */
-    protected function getConfiguredEntryList(): array
+    protected function getEntryList(): array
     {
         return ComponentConfiguration::getRestrictedDirectivesByUserState();
     }
@@ -59,23 +59,23 @@ abstract class AbstractMaybeDisableDirectivesBasedOnUserStatePrivateSchemaHookSe
         )));
     }
 
-    protected abstract function getEntryValue(): string;
+    protected abstract function getRequiredEntryValue(): string;
 
     /**
      * Filter all the entries from the list which apply to the passed typeResolver and fieldName
      *
      * @param boolean $include
-     * @param array $configuredEntryList
+     * @param array $entryList
      * @param TypeResolverInterface $typeResolver
      * @param string $fieldName
      * @return boolean
      */
-    protected function getMatchingEntriesFromConfiguration(array $configuredEntryList, string $value): array
+    protected function getMatchingEntriesFromConfiguration(array $entryList, string $value): array
     {
         return array_filter(
-            $configuredEntryList,
-            function($configuredEntry) use($value) {
-                return $configuredEntry[1] == $value;
+            $entryList,
+            function($entry) use($value) {
+                return $entry[1] == $value;
             }
         );
     }

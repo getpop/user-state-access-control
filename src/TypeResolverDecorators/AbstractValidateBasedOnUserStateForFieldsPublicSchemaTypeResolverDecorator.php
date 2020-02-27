@@ -10,7 +10,7 @@ abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolver
 {
     use ValidateConditionForFieldsPublicSchemaTypeResolverDecoratorTrait;
 
-    protected static function getConfiguredEntryList(): array
+    protected static function getEntryList(): array
     {
         return ComponentConfiguration::getRestrictedFieldsByUserState();
     }
@@ -19,7 +19,7 @@ abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolver
     {
         $mandatoryDirectivesForFields = [];
         $fieldQueryInterpreter = FieldQueryInterpreterFacade::getInstance();
-        $configuredEntryList = ComponentConfiguration::getRestrictedFieldsByUserState();
+        $entryList = ComponentConfiguration::getRestrictedFieldsByUserState();
         $validateUserStateDirective = $this->getValidateUserStateDirectiveResolverClass();
         $validateUserStateDirectiveName = $validateUserStateDirective::getDirectiveName();
         $validateUserStateDirective = $fieldQueryInterpreter->getDirective(
@@ -28,7 +28,7 @@ abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolver
         // Obtain all capabilities allowed for the current combination of typeResolver/fieldName
         foreach ($this->getFieldNames() as $fieldName) {
             if ($matchingEntries = $this->getMatchingEntriesFromConfiguration(
-                $configuredEntryList,
+                $entryList,
                 $typeResolver,
                 $fieldName
             )) {
@@ -54,6 +54,6 @@ abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolver
 
     public function enabled(TypeResolverInterface $typeResolver): bool
     {
-        return parent::enabled($typeResolver) && !empty(static::getConfiguredEntryList());
+        return parent::enabled($typeResolver) && !empty(static::getEntryList());
     }
 }

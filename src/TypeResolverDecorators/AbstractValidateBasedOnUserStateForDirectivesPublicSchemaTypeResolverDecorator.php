@@ -10,7 +10,7 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeReso
 {
     use ValidateConditionForDirectivesPublicSchemaTypeResolverDecoratorTrait;
 
-    protected function getConfiguredEntryList(): array
+    protected function getEntryList(): array
     {
         return ComponentConfiguration::getRestrictedDirectivesByUserState();
     }
@@ -19,15 +19,15 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeReso
     {
         $mandatoryDirectivesForDirectives = [];
         $fieldQueryInterpreter = FieldQueryInterpreterFacade::getInstance();
-        $configuredEntryList = ComponentConfiguration::getRestrictedDirectivesByUserState();
+        $entryList = ComponentConfiguration::getRestrictedDirectivesByUserState();
         $validateUserStateDirective = $this->getValidateUserStateDirectiveResolverClass();
         $validateUserStateDirectiveName = $validateUserStateDirective::getDirectiveName();
         $validateUserStateDirective = $fieldQueryInterpreter->getDirective(
             $validateUserStateDirectiveName
         );
         if ($matchingEntries = $this->getMatchingEntriesFromConfiguration(
-            $configuredEntryList,
-            $this->getConfiguredEntryState()
+            $entryList,
+            $this->getRequiredEntryState()
         )) {
             $directiveResolverClasses = array_values(array_unique(array_map(
                 function($entry) {
@@ -46,10 +46,10 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeReso
     }
 
     abstract protected function getValidateUserStateDirectiveResolverClass(): string;
-    abstract protected function getConfiguredEntryState(): string;
+    abstract protected function getRequiredEntryState(): string;
 
     public function enabled(TypeResolverInterface $typeResolver): bool
     {
-        return parent::enabled($typeResolver) && !empty(static::getConfiguredEntryList());
+        return parent::enabled($typeResolver) && !empty(static::getEntryList());
     }
 }

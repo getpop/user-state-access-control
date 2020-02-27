@@ -6,7 +6,7 @@ use PoP\UserState\DirectiveResolvers\ValidateIsUserLoggedInDirectiveResolver;
 
 class ValidateUserLoggedInForDirectivesPublicSchemaTypeResolverDecorator extends AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeResolverDecorator
 {
-    protected function getConfiguredEntryState(): string
+    protected function getRequiredEntryState(): string
     {
         return UserStates::IN;
     }

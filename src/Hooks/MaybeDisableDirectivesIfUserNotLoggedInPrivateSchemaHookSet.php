@@ -10,7 +10,7 @@ class MaybeDisableDirectivesIfUserNotLoggedInPrivateSchemaHookSet extends Abstra
         return !$isUserLoggedIn;
     }
 
-    protected function getEntryValue(): string
+    protected function getRequiredEntryValue(): string
     {
         return UserStates::IN;
     }
