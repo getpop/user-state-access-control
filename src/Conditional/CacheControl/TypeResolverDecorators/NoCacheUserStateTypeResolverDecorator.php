@@ -9,7 +9,7 @@ use PoP\CacheControl\DirectiveResolvers\AbstractCacheControlDirectiveResolver;
 use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserLoggedInDirectiveResolver;
 use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInDirectiveResolver;
 
-class UserTypeResolverDecorator extends AbstractTypeResolverDecorator
+class NoCacheUserStateTypeResolverDecorator extends AbstractTypeResolverDecorator
 {
     public static function getClassesToAttachTo(): array
     {
