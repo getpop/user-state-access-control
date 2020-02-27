@@ -5,7 +5,7 @@ use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\UserStateAccessControl\ConfigurationEntries\MaybeDisableDirectivesIfConditionTrait;
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 
-trait ValidateConditionForDirectivesPublicSchemaTypeResolverDecoratorTrait
+trait ValidateConditionForDirectivesTypeResolverDecoratorTrait
 {
     use MaybeDisableDirectivesIfConditionTrait;
 

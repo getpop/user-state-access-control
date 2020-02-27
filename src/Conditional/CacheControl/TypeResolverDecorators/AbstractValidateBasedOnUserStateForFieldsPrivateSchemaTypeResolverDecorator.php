@@ -7,11 +7,11 @@ use PoP\UserStateAccessControl\Services\AccessControlGroups;
 use PoP\ComponentModel\Facades\Schema\FieldQueryInterpreterFacade;
 use PoP\CacheControl\DirectiveResolvers\AbstractCacheControlDirectiveResolver;
 use PoP\AccessControl\TypeResolverDecorators\AbstractPublicSchemaTypeResolverDecorator;
-use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateConditionForFieldsPublicSchemaTypeResolverDecoratorTrait;
+use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateConditionForFieldsTypeResolverDecoratorTrait;
 
 abstract class AbstractValidateBasedOnUserStateForFieldsPrivateSchemaTypeResolverDecorator extends AbstractPublicSchemaTypeResolverDecorator
 {
-    use ValidateConditionForFieldsPublicSchemaTypeResolverDecoratorTrait;
+    use ValidateConditionForFieldsTypeResolverDecoratorTrait;
 
     protected static function getEntryList(): array
     {

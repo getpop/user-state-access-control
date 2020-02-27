@@ -9,7 +9,7 @@ use PoP\AccessControl\TypeResolverDecorators\AbstractPublicSchemaTypeResolverDec
 
 abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeResolverDecorator extends AbstractPublicSchemaTypeResolverDecorator
 {
-    use ValidateConditionForDirectivesPublicSchemaTypeResolverDecoratorTrait;
+    use ValidateConditionForDirectivesTypeResolverDecoratorTrait;
 
     protected function getEntryList(): array
     {

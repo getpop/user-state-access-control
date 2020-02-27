@@ -4,7 +4,7 @@ namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\UserStateAccessControl\ConfigurationEntries\MaybeDisableFieldsIfConditionTrait;
 
-trait ValidateConditionForFieldsPublicSchemaTypeResolverDecoratorTrait
+trait ValidateConditionForFieldsTypeResolverDecoratorTrait
 {
     use MaybeDisableFieldsIfConditionTrait;
 

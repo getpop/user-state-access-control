@@ -9,7 +9,7 @@ use PoP\AccessControl\TypeResolverDecorators\AbstractPublicSchemaTypeResolverDec
 
 abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolverDecorator extends AbstractPublicSchemaTypeResolverDecorator
 {
-    use ValidateConditionForFieldsPublicSchemaTypeResolverDecoratorTrait;
+    use ValidateConditionForFieldsTypeResolverDecoratorTrait;
 
     protected static function getEntryList(): array
     {
