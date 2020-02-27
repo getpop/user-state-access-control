@@ -1,17 +1,9 @@
 <?php
 namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
-use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
-use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInDirectiveResolver;
+use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateUserNotLoggedInForDirectivesTypeResolverDecoratorTrait;
 
 class ValidateUserNotLoggedInForDirectivesPublicSchemaTypeResolverDecorator extends AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeResolverDecorator
 {
-    protected function getRequiredEntryState(): string
-    {
-        return UserStates::OUT;
-    }
-    protected function getValidateUserStateDirectiveResolverClass(): string
-    {
-        return ValidateIsUserNotLoggedInDirectiveResolver::class;
-    }
+    use ValidateUserNotLoggedInForDirectivesTypeResolverDecoratorTrait;
 }
