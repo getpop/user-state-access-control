@@ -1,7 +1,7 @@
 <?php
 namespace PoP\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecorators;
 
-use PoP\Users\TypeResolvers\UserTypeResolver;
+use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\Facades\Schema\FieldQueryInterpreterFacade;
 use PoP\ComponentModel\TypeResolverDecorators\AbstractTypeResolverDecorator;
@@ -14,7 +14,7 @@ class UserTypeResolverDecorator extends AbstractTypeResolverDecorator
     public static function getClassesToAttachTo(): array
     {
         return array(
-            UserTypeResolver::class,
+            AbstractTypeResolver::class,
         );
     }
 

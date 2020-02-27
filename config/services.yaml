@@ -15,7 +15,3 @@ services:
     PoP\UserStateAccessControl\DirectiveResolvers\:
         resource: '../src/DirectiveResolvers/*'
         public: true
-
-    PoP\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecorators\:
-        resource: '../src/Conditional/CacheControl/TypeResolverDecorators/*'
-        public: true

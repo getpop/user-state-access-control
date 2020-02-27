@@ -1,7 +1,7 @@
 <?php
 namespace PoP\UserStateAccessControl;
 
-use PoP\AccessControl\Environment;
+use PoP\AccessControl\Component as AccessControlComponent;
 use PoP\Root\Component\AbstractComponent;
 use PoP\Root\Component\YAMLServicesTrait;
 use PoP\Root\Component\CanDisableComponentTrait;
@@ -12,6 +12,7 @@ use PoP\ComponentModel\Container\ContainerBuilderUtils;
  */
 class Component extends AbstractComponent
 {
+    public static $COMPONENT_DIR;
     use YAMLServicesTrait, CanDisableComponentTrait;
     // const VERSION = '0.1.0';
 
@@ -22,13 +23,19 @@ class Component extends AbstractComponent
     {
         if (self::isEnabled()) {
             parent::init();
-            self::initYAMLServices(dirname(__DIR__));
+            self::$COMPONENT_DIR = dirname(__DIR__);
+            self::initYAMLServices(self::$COMPONENT_DIR);
+
+            // Init conditional on API package being installed
+            if (class_exists('\PoP\CacheControl\Component')) {
+                \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::init();
+            }
         }
     }
 
     protected static function resolveEnabled()
     {
-        return !Environment::disableAccessControl();
+        return AccessControlComponent::isEnabled();
     }
 
     /**
@@ -47,7 +54,7 @@ class Component extends AbstractComponent
 
         // Boot conditional on API package being installed
         if (class_exists('\PoP\CacheControl\Component')) {
-            \PoP\UserState\Conditional\CacheControl\ComponentBoot::boot();
+            \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::boot();
         }
     }
 }
