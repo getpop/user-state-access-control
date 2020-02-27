@@ -3,9 +3,8 @@ namespace PoP\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecora
 
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
-use PoP\ComponentModel\Facades\Schema\FieldQueryInterpreterFacade;
 use PoP\ComponentModel\TypeResolverDecorators\AbstractTypeResolverDecorator;
-use PoP\CacheControl\DirectiveResolvers\AbstractCacheControlDirectiveResolver;
+use PoP\CacheControl\Helpers\CacheControlHelper;
 use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserLoggedInDirectiveResolver;
 use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInDirectiveResolver;
 
@@ -26,19 +25,13 @@ class NoCacheUserStateTypeResolverDecorator extends AbstractTypeResolverDecorato
      */
     public function getMandatoryDirectivesForDirectives(TypeResolverInterface $typeResolver): array
     {
-        $fieldQueryInterpreter = FieldQueryInterpreterFacade::getInstance();
-        $noCacheControlDirectiveResolver = $fieldQueryInterpreter->getDirective(
-            AbstractCacheControlDirectiveResolver::getDirectiveName(),
-            [
-                'maxAge' => 0,
-            ]
-        );
+        $noCacheControlDirective = CacheControlHelper::getNoCacheDirective();
         return [
             ValidateIsUserLoggedInDirectiveResolver::getDirectiveName() => [
-                $noCacheControlDirectiveResolver,
+                $noCacheControlDirective,
             ],
             ValidateIsUserNotLoggedInDirectiveResolver::getDirectiveName() => [
-                $noCacheControlDirectiveResolver,
+                $noCacheControlDirective,
             ],
         ];
     }
