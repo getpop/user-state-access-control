@@ -8,6 +8,11 @@ use PoP\UserStateAccessControl\Hooks\AbstractMaybeDisableFieldsIfUserNotLoggedIn
 
 class DisableUserStateFieldsIfUserNotLoggedInPrivateSchemaHookSet extends AbstractMaybeDisableFieldsIfUserNotLoggedInPrivateSchemaHookSet
 {
+    protected function enabled(): bool
+    {
+        return parent::enabled() && !$this->isUserLoggedIn();
+    }
+
     /**
      * Apply to all fields
      *
@@ -28,8 +33,6 @@ class DisableUserStateFieldsIfUserNotLoggedInPrivateSchemaHookSet extends Abstra
      */
     protected function removeFieldName(TypeResolverInterface $typeResolver, FieldResolverInterface $fieldResolver, string $fieldName): bool
     {
-        return
-            !$this->isUserLoggedIn() &&
-            ($fieldResolver instanceof AbstractUserStateFieldResolver);
+        return $fieldResolver instanceof AbstractUserStateFieldResolver;
     }
 }
