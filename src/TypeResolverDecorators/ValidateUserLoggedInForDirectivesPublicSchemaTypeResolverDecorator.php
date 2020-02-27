@@ -2,7 +2,7 @@
 namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
 use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
-use PoP\UserState\DirectiveResolvers\ValidateIsUserLoggedInDirectiveResolver;
+use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserLoggedInDirectiveResolver;
 
 class ValidateUserLoggedInForDirectivesPublicSchemaTypeResolverDecorator extends AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeResolverDecorator
 {

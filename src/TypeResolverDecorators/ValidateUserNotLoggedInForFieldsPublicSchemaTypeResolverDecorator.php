@@ -2,7 +2,7 @@
 namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
 use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
-use PoP\UserState\DirectiveResolvers\ValidateIsUserNotLoggedInDirectiveResolver;
+use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInDirectiveResolver;
 
 class ValidateUserNotLoggedInForFieldsPublicSchemaTypeResolverDecorator extends AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolverDecorator
 {

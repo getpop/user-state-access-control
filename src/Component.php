@@ -43,5 +43,11 @@ class Component extends AbstractComponent
         // Initialize classes
         ContainerBuilderUtils::instantiateNamespaceServices(__NAMESPACE__.'\\Hooks');
         ContainerBuilderUtils::attachTypeResolverDecoratorsFromNamespace(__NAMESPACE__.'\\TypeResolverDecorators');
+        ContainerBuilderUtils::attachDirectiveResolversFromNamespace(__NAMESPACE__.'\\DirectiveResolvers');
+
+        // Boot conditional on API package being installed
+        if (class_exists('\PoP\CacheControl\Component')) {
+            \PoP\UserState\Conditional\CacheControl\ComponentBoot::boot();
+        }
     }
 }

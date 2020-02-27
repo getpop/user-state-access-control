@@ -4,7 +4,7 @@ namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\Facades\Schema\FieldQueryInterpreterFacade;
 use PoP\AccessControl\TypeResolverDecorators\AbstractPublicSchemaTypeResolverDecorator;
-use PoP\UserState\DirectiveResolvers\ValidateIsUserLoggedInDirectiveResolver;
+use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserLoggedInDirectiveResolver;
 
 abstract class AbstractValidateIsUserLoggedInForFieldsTypeResolverDecorator extends AbstractPublicSchemaTypeResolverDecorator
 {
