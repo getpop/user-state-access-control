@@ -1,7 +1,6 @@
 <?php
 namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
-use PoP\UserStateAccessControl\ComponentConfiguration;
 use PoP\AccessControl\Facades\AccessControlManagerFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\UserStateAccessControl\Services\AccessControlGroups;
