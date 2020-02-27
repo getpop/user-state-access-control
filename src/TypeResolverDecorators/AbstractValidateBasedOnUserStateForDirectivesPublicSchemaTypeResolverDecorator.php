@@ -2,7 +2,9 @@
 namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
 use PoP\UserStateAccessControl\ComponentConfiguration;
+use PoP\AccessControl\Facades\AccessControlManagerFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
+use PoP\UserStateAccessControl\Services\AccessControlGroups;
 use PoP\ComponentModel\Facades\Schema\FieldQueryInterpreterFacade;
 use PoP\AccessControl\TypeResolverDecorators\AbstractPublicSchemaTypeResolverDecorator;
 
@@ -12,14 +14,16 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeReso
 
     protected function getEntryList(): array
     {
-        return ComponentConfiguration::getRestrictedDirectivesByUserState();
+        $accessControlManager = AccessControlManagerFacade::getInstance();
+        return $accessControlManager->getEntriesForDirectives(AccessControlGroups::STATE);
+        // return ComponentConfiguration::getRestrictedDirectivesByUserState();
     }
 
     public function getMandatoryDirectivesForDirectives(TypeResolverInterface $typeResolver): array
     {
         $mandatoryDirectivesForDirectives = [];
         $fieldQueryInterpreter = FieldQueryInterpreterFacade::getInstance();
-        $entryList = ComponentConfiguration::getRestrictedDirectivesByUserState();
+        $entryList = static::getEntryList();
         $validateUserStateDirective = $this->getValidateUserStateDirectiveResolverClass();
         $validateUserStateDirectiveName = $validateUserStateDirective::getDirectiveName();
         $validateUserStateDirective = $fieldQueryInterpreter->getDirective(

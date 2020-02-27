@@ -2,8 +2,10 @@
 namespace PoP\UserStateAccessControl\Hooks;
 
 use PoP\UserStateAccessControl\ComponentConfiguration;
+use PoP\AccessControl\Facades\AccessControlManagerFacade;
 use PoP\UserState\Facades\UserStateTypeDataResolverFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
+use PoP\UserStateAccessControl\Services\AccessControlGroups;
 use PoP\ComponentModel\FieldResolvers\FieldResolverInterface;
 use PoP\AccessControl\Hooks\AbstractMaybeDisableFieldsInPrivateSchemaHookSet;
 use PoP\UserStateAccessControl\Hooks\MaybeDisableFieldsIfConditionPrivateSchemaHookSetTrait;
@@ -19,7 +21,9 @@ abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet ex
      */
     protected static function getEntryList(): array
     {
-        return ComponentConfiguration::getRestrictedFieldsByUserState();
+        $accessControlManager = AccessControlManagerFacade::getInstance();
+        return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
+        // return ComponentConfiguration::getRestrictedFieldsByUserState();
     }
 
     /**
@@ -35,7 +39,7 @@ abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet ex
     {
         // Obtain all entries for the current combination of typeResolver/fieldName
         if ($matchingEntries = $this->getMatchingEntriesFromConfiguration(
-            ComponentConfiguration::getRestrictedFieldsByUserState(),
+            static::getEntryList(),
             $typeResolver,
             $fieldName
         )) {

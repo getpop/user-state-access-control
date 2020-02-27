@@ -2,8 +2,10 @@
 namespace PoP\UserStateAccessControl\Hooks;
 
 use PoP\UserStateAccessControl\ComponentConfiguration;
+use PoP\AccessControl\Facades\AccessControlManagerFacade;
 use PoP\UserState\Facades\UserStateTypeDataResolverFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
+use PoP\UserStateAccessControl\Services\AccessControlGroups;
 use PoP\AccessControl\Hooks\AbstractMaybeDisableDirectivesInPrivateSchemaHookSet;
 
 abstract class AbstractMaybeDisableDirectivesBasedOnUserStatePrivateSchemaHookSet extends AbstractMaybeDisableDirectivesInPrivateSchemaHookSet
@@ -37,7 +39,9 @@ abstract class AbstractMaybeDisableDirectivesBasedOnUserStatePrivateSchemaHookSe
      */
     protected function getEntryList(): array
     {
-        return ComponentConfiguration::getRestrictedDirectivesByUserState();
+        $accessControlManager = AccessControlManagerFacade::getInstance();
+        return $accessControlManager->getEntriesForDirectives(AccessControlGroups::STATE);
+        // return ComponentConfiguration::getRestrictedDirectivesByUserState();
     }
 
     /**
