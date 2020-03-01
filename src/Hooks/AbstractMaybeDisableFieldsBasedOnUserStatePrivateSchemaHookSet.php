@@ -3,16 +3,11 @@ namespace PoP\UserStateAccessControl\Hooks;
 
 use PoP\AccessControl\Facades\AccessControlManagerFacade;
 use PoP\UserState\Facades\UserStateTypeDataResolverFacade;
-use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\UserStateAccessControl\Services\AccessControlGroups;
-use PoP\ComponentModel\FieldResolvers\FieldResolverInterface;
-use PoP\UserStateAccessControl\Hooks\MaybeDisableFieldsIfConditionPrivateSchemaHookSetTrait;
-use PoP\UserStateAccessControl\Hooks\AbstractMaybeDisableUserStateFieldsInPrivateSchemaHookSet;
+use PoP\AccessControl\Hooks\AbstractMaybeDisableFieldsIfConditionInPrivateSchemaHookSet;
 
-abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet extends AbstractMaybeDisableUserStateFieldsInPrivateSchemaHookSet
+abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet extends AbstractMaybeDisableFieldsIfConditionInPrivateSchemaHookSet
 {
-    use MaybeDisableFieldsIfConditionPrivateSchemaHookSetTrait;
-
     /**
      * Configuration entries
      *
@@ -24,37 +19,13 @@ abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet ex
         return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
     }
 
-    /**
-     * Remove fieldName "roles" if the user is not logged in
-     *
-     * @param boolean $include
-     * @param TypeResolverInterface $typeResolver
-     * @param FieldResolverInterface $fieldResolver
-     * @param string $fieldName
-     * @return boolean
-     */
-    protected function removeFieldName(TypeResolverInterface $typeResolver, FieldResolverInterface $fieldResolver, string $fieldName): bool
+    protected function removeFieldNameBasedOnCondition(array $configuredEntryStates): bool
     {
-        // Obtain all entries for the current combination of typeResolver/fieldName
-        if ($matchingEntries = $this->getMatchingEntriesFromConfiguration(
-            static::getEntryList(),
-            $typeResolver,
-            $fieldName
-        )) {
-            // Obtain the 3rd value on each entry: if the validation is "in" or "out"
-            $configuredEntryStates = array_values(array_unique(array_map(
-                function($entry) {
-                    return $entry[2];
-                },
-                $matchingEntries
-            )));
-            // Obtain the user state: logged in or not
-            $userStateTypeDataResolver = UserStateTypeDataResolverFacade::getInstance();
-            $isUserLoggedIn = $userStateTypeDataResolver->isUserLoggedIn();
-            // Let the implementation class decide if to remove the field or not
-            return $this->removeFieldNameBasedOnUserState($configuredEntryStates, $isUserLoggedIn);
-        }
-        return false;
+        // Obtain the user state: logged in or not
+        $userStateTypeDataResolver = UserStateTypeDataResolverFacade::getInstance();
+        $isUserLoggedIn = $userStateTypeDataResolver->isUserLoggedIn();
+        // Let the implementation class decide if to remove the field or not
+        return $this->removeFieldNameBasedOnUserState($configuredEntryStates, $isUserLoggedIn);
     }
 
     abstract protected function removeFieldNameBasedOnUserState(array $configuredEntryStates, bool $isUserLoggedIn): bool;
