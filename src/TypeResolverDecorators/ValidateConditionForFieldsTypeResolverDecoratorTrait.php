@@ -2,7 +2,7 @@
 namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
-use PoP\UserStateAccessControl\ConfigurationEntries\MaybeDisableFieldsIfConditionTrait;
+use PoP\AccessControl\ConfigurationEntries\MaybeDisableFieldsIfConditionTrait;
 
 trait ValidateConditionForFieldsTypeResolverDecoratorTrait
 {

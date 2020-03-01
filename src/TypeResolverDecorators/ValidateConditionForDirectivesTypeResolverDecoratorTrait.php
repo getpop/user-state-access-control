@@ -2,7 +2,7 @@
 namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
-use PoP\UserStateAccessControl\ConfigurationEntries\MaybeDisableDirectivesIfConditionTrait;
+use PoP\AccessControl\ConfigurationEntries\MaybeDisableDirectivesIfConditionTrait;
 use PoP\ComponentModel\TypeResolvers\AbstractTypeResolver;
 
 trait ValidateConditionForDirectivesTypeResolverDecoratorTrait

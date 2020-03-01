@@ -1,7 +1,7 @@
 <?php
 namespace PoP\UserStateAccessControl\Hooks;
 
-use PoP\UserStateAccessControl\ConfigurationEntries\MaybeDisableFieldsIfConditionTrait;
+use PoP\AccessControl\ConfigurationEntries\MaybeDisableFieldsIfConditionTrait;
 
 trait MaybeDisableFieldsIfConditionPrivateSchemaHookSetTrait
 {
