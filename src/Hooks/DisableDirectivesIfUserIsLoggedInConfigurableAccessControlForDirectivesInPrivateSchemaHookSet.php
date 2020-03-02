@@ -3,7 +3,7 @@ namespace PoP\UserStateAccessControl\Hooks;
 
 use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
 
-class MaybeDisableDirectivesIfUserLoggedInPrivateSchemaHookSet extends AbstractUserStateConfigurableAccessControlForDirectivesInPrivateSchemaHookSet
+class DisableDirectivesIfUserIsLoggedInConfigurableAccessControlForDirectivesInPrivateSchemaHookSet extends AbstractUserStateConfigurableAccessControlForDirectivesInPrivateSchemaHookSet
 {
     protected function enableBasedOnUserState(bool $isUserLoggedIn): bool
     {
