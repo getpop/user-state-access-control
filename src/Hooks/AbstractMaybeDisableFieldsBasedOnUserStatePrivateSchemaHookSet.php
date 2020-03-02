@@ -4,9 +4,9 @@ namespace PoP\UserStateAccessControl\Hooks;
 use PoP\AccessControl\Facades\AccessControlManagerFacade;
 use PoP\UserState\Facades\UserStateTypeDataResolverFacade;
 use PoP\UserStateAccessControl\Services\AccessControlGroups;
-use PoP\AccessControl\Hooks\AbstractMaybeDisableFieldsIfConditionInPrivateSchemaHookSet;
+use PoP\AccessControl\Hooks\AbstractConfigurableAccessControlForFieldsInPrivateSchemaHookSet;
 
-abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet extends AbstractMaybeDisableFieldsIfConditionInPrivateSchemaHookSet
+abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet extends AbstractConfigurableAccessControlForFieldsInPrivateSchemaHookSet
 {
     /**
      * Configuration entries
