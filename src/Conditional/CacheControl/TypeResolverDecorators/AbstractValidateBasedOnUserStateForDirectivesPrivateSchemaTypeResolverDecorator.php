@@ -3,11 +3,16 @@ namespace PoP\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecora
 
 use PoP\CacheControl\Helpers\CacheControlHelper;
 use PoP\AccessControl\TypeResolverDecorators\AbstractConfigurableAccessControlForDirectivesInPrivateSchemaTypeResolverDecorator;
-use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateBasedOnUserStateForDirectivesTypeResolverDecoratorTrait;
+use PoP\AccessControl\Facades\AccessControlManagerFacade;
+use PoP\UserStateAccessControl\Services\AccessControlGroups;
 
 abstract class AbstractValidateBasedOnUserStateForDirectivesPrivateSchemaTypeResolverDecorator extends AbstractConfigurableAccessControlForDirectivesInPrivateSchemaTypeResolverDecorator
 {
-    use ValidateBasedOnUserStateForDirectivesTypeResolverDecoratorTrait;
+    protected function getConfigurationEntries(): array
+    {
+        $accessControlManager = AccessControlManagerFacade::getInstance();
+        return $accessControlManager->getEntriesForDirectives(AccessControlGroups::STATE);
+    }
 
     protected function getMandatoryDirectives($entryValue = null): array
     {
