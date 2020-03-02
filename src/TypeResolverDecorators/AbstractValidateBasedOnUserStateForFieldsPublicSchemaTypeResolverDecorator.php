@@ -4,12 +4,20 @@ namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 use PoP\ComponentModel\Facades\Schema\FieldQueryInterpreterFacade;
 use PoP\AccessControl\TypeResolverDecorators\AbstractPublicSchemaTypeResolverDecorator;
 use PoP\AccessControl\TypeResolverDecorators\ConfigurableAccessControlForFieldsTypeResolverDecoratorTrait;
-use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait;
+use PoP\AccessControl\Facades\AccessControlManagerFacade;
+use PoP\UserStateAccessControl\Services\AccessControlGroups;
 
 abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolverDecorator extends AbstractPublicSchemaTypeResolverDecorator
 {
     use ConfigurableAccessControlForFieldsTypeResolverDecoratorTrait;
-    use ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait;
+
+    protected static function getConfigurationEntries(): array
+    {
+        $accessControlManager = AccessControlManagerFacade::getInstance();
+        return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
+    }
+
+    abstract protected function getValidateUserStateDirectiveResolverClass(): string;
 
     protected function getMandatoryDirectives($entryValue = null): array
     {
