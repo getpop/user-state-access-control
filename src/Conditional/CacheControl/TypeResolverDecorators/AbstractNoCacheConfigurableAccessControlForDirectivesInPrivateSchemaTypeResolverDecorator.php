@@ -7,7 +7,7 @@ use PoP\UserStateAccessControl\Services\AccessControlGroups;
 
 abstract class AbstractNoCacheConfigurableAccessControlForDirectivesInPrivateSchemaTypeResolverDecorator extends AbstractConfigurableAccessControlForDirectivesInPrivateSchemaTypeResolverDecorator
 {
-    use NoCacheConfigurableAccessControlInPublicSchemaTypeResolverDecoratorTrait;
+    use NoCacheConfigurableAccessControlTypeResolverDecoratorTrait;
 
     protected function getConfigurationEntries(): array
     {

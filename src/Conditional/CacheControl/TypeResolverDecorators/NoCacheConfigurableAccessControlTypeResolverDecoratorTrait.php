@@ -3,7 +3,7 @@ namespace PoP\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecora
 
 use PoP\CacheControl\Helpers\CacheControlHelper;
 
-trait NoCacheConfigurableAccessControlInPublicSchemaTypeResolverDecoratorTrait
+trait NoCacheConfigurableAccessControlTypeResolverDecoratorTrait
 {
     protected function getMandatoryDirectives($entryValue = null): array
     {

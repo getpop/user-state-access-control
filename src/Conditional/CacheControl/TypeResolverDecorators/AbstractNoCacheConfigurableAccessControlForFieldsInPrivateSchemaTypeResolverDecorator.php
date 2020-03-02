@@ -7,7 +7,7 @@ use PoP\UserStateAccessControl\Services\AccessControlGroups;
 
 abstract class AbstractNoCacheConfigurableAccessControlForFieldsInPrivateSchemaTypeResolverDecorator extends AbstractConfigurableAccessControlForFieldsInPrivateSchemaTypeResolverDecorator
 {
-    use NoCacheConfigurableAccessControlInPublicSchemaTypeResolverDecoratorTrait;
+    use NoCacheConfigurableAccessControlTypeResolverDecoratorTrait;
 
     protected static function getConfigurationEntries(): array
     {
