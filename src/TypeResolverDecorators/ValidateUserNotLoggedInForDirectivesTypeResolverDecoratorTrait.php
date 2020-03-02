@@ -6,7 +6,7 @@ use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInDirec
 
 trait ValidateUserNotLoggedInForDirectivesTypeResolverDecoratorTrait
 {
-    protected function getRequiredEntryState(): string
+    protected function getRequiredEntryState(): ?string
     {
         return UserStates::OUT;
     }
