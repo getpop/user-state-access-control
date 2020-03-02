@@ -19,14 +19,14 @@ abstract class AbstractUserStateConfigurableAccessControlForFieldsInPrivateSchem
         return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
     }
 
-    protected function removeFieldNameBasedOnMatchingEntryValue($configuredEntryStates): bool
+    protected function removeFieldNameBasedOnMatchingEntryValue($entryValue): bool
     {
         // Obtain the user state: logged in or not
         $userStateTypeDataResolver = UserStateTypeDataResolverFacade::getInstance();
         $isUserLoggedIn = $userStateTypeDataResolver->isUserLoggedIn();
         // Let the implementation class decide if to remove the field or not
-        return $this->removeFieldNameBasedOnUserState((array)$configuredEntryStates, $isUserLoggedIn);
+        return $this->removeFieldNameBasedOnUserState((string)$entryValue, $isUserLoggedIn);
     }
 
-    abstract protected function removeFieldNameBasedOnUserState(array $configuredEntryStates, bool $isUserLoggedIn): bool;
+    abstract protected function removeFieldNameBasedOnUserState(string $entryValue, bool $isUserLoggedIn): bool;
 }
