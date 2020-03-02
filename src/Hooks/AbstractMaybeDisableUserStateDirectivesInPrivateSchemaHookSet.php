@@ -1,9 +1,0 @@
-<?php
-namespace PoP\UserStateAccessControl\Hooks;
-
-use PoP\AccessControl\Hooks\AbstractMaybeDisableDirectivesInPrivateSchemaHookSet;
-
-abstract class AbstractMaybeDisableUserStateDirectivesInPrivateSchemaHookSet extends AbstractMaybeDisableDirectivesInPrivateSchemaHookSet
-{
-
-}

@@ -1,9 +1,0 @@
-<?php
-namespace PoP\UserStateAccessControl\Hooks;
-
-use PoP\AccessControl\Hooks\AbstractMaybeDisableFieldsInPrivateSchemaHookSet;
-
-abstract class AbstractMaybeDisableUserStateFieldsInPrivateSchemaHookSet extends AbstractMaybeDisableFieldsInPrivateSchemaHookSet
-{
-
-}
