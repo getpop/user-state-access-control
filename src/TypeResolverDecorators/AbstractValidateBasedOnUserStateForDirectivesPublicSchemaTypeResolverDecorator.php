@@ -14,8 +14,8 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeReso
     protected function getMandatoryDirectives(): array
     {
         $fieldQueryInterpreter = FieldQueryInterpreterFacade::getInstance();
-        $validateUserStateDirective = $this->getValidateUserStateDirectiveResolverClass();
-        $validateUserStateDirectiveName = $validateUserStateDirective::getDirectiveName();
+        $validateUserStateDirectiveClass = $this->getValidateUserStateDirectiveResolverClass();
+        $validateUserStateDirectiveName = $validateUserStateDirectiveClass::getDirectiveName();
         $validateUserStateDirective = $fieldQueryInterpreter->getDirective(
             $validateUserStateDirectiveName
         );
