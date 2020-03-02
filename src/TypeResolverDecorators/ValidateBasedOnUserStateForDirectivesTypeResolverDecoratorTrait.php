@@ -9,7 +9,7 @@ trait ValidateBasedOnUserStateForDirectivesTypeResolverDecoratorTrait
 {
     use ValidateBasedOnConditionForDirectivesTypeResolverDecoratorTrait;
 
-    protected function getEntryList(): array
+    protected function getConfigurationEntries(): array
     {
         $accessControlManager = AccessControlManagerFacade::getInstance();
         return $accessControlManager->getEntriesForDirectives(AccessControlGroups::STATE);
