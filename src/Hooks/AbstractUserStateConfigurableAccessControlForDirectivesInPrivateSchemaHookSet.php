@@ -1,8 +1,8 @@
 <?php
 namespace PoP\UserStateAccessControl\Hooks;
 
+use PoP\ComponentModel\Engine_Vars;
 use PoP\AccessControl\Facades\AccessControlManagerFacade;
-use PoP\UserState\Facades\UserStateTypeDataResolverFacade;
 use PoP\UserStateAccessControl\Services\AccessControlGroups;
 use PoP\AccessControl\Hooks\AbstractConfigurableAccessControlForDirectivesInPrivateSchemaHookSet;
 
@@ -10,8 +10,8 @@ abstract class AbstractUserStateConfigurableAccessControlForDirectivesInPrivateS
 {
     protected function enabled(): bool
     {
-        $userStateTypeDataResolver = UserStateTypeDataResolverFacade::getInstance();
-        $isUserLoggedIn = $userStateTypeDataResolver->isUserLoggedIn();
+        $vars = Engine_Vars::getVars();
+        $isUserLoggedIn = $vars['global-userstate']['is-user-logged-in'];
         return parent::enabled() && $this->enableBasedOnUserState($isUserLoggedIn);
     }
 

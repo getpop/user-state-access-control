@@ -1,7 +1,7 @@
 <?php
 namespace PoP\UserStateAccessControl\Hooks;
 
-use PoP\UserState\Facades\UserStateTypeDataResolverFacade;
+use PoP\ComponentModel\Engine_Vars;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\FieldResolvers\FieldResolverInterface;
 use PoP\AccessControl\Hooks\AbstractAccessControlForFieldsInPrivateSchemaHookSet;
@@ -29,7 +29,7 @@ abstract class AbstractDisableFieldsIfUserIsNotLoggedInAccessControlForFieldsInP
         /**
          * If the user is not logged in, then remove the field
          */
-        $userStateTypeDataResolver = UserStateTypeDataResolverFacade::getInstance();
-        return $userStateTypeDataResolver->isUserLoggedIn();
+        $vars = Engine_Vars::getVars();
+        return $vars['global-userstate']['is-user-logged-in'];
     }
 }
