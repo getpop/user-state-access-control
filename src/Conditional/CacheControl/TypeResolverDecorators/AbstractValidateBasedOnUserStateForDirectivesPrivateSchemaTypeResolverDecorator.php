@@ -11,7 +11,7 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPrivateSchemaTypeRes
     use ValidateConditionForDirectivesTypeResolverDecoratorTrait;
     use ValidateBasedOnUserStateForDirectivesTypeResolverDecoratorTrait;
 
-    protected function getMandatoryDirectives(): array
+    protected function getMandatoryDirectives($entryValue = null): array
     {
         return [
             CacheControlHelper::getNoCacheDirective(),

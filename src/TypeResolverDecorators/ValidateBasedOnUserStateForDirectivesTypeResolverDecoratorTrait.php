@@ -3,11 +3,11 @@ namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
 use PoP\AccessControl\Facades\AccessControlManagerFacade;
 use PoP\UserStateAccessControl\Services\AccessControlGroups;
-use PoP\AccessControl\TypeResolverDecorators\ValidateBasedOnConditionForDirectivesTypeResolverDecoratorTrait;
+use PoP\AccessControl\TypeResolverDecorators\ValidateConditionForDirectivesTypeResolverDecoratorTrait;
 
 trait ValidateBasedOnUserStateForDirectivesTypeResolverDecoratorTrait
 {
-    use ValidateBasedOnConditionForDirectivesTypeResolverDecoratorTrait;
+    use ValidateConditionForDirectivesTypeResolverDecoratorTrait;
 
     protected function getConfigurationEntries(): array
     {

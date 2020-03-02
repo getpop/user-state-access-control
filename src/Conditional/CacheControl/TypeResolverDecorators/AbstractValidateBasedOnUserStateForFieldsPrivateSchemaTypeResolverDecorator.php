@@ -11,7 +11,7 @@ abstract class AbstractValidateBasedOnUserStateForFieldsPrivateSchemaTypeResolve
     use ValidateConditionForFieldsTypeResolverDecoratorTrait;
     use ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait;
 
-    protected function getMandatoryDirectives(): array
+    protected function getMandatoryDirectives($entryValue = null): array
     {
         return [
             CacheControlHelper::getNoCacheDirective(),

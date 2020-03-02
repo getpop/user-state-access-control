@@ -11,7 +11,7 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeReso
     use ValidateConditionForDirectivesTypeResolverDecoratorTrait;
     use ValidateBasedOnUserStateForDirectivesTypeResolverDecoratorTrait;
 
-    protected function getMandatoryDirectives(): array
+    protected function getMandatoryDirectives($entryValue = null): array
     {
         $fieldQueryInterpreter = FieldQueryInterpreterFacade::getInstance();
         $validateUserStateDirectiveClass = $this->getValidateUserStateDirectiveResolverClass();
