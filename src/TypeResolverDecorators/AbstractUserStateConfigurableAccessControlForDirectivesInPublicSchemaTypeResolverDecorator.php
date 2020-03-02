@@ -6,15 +6,13 @@ use PoP\AccessControl\TypeResolverDecorators\AbstractConfigurableAccessControlFo
 use PoP\AccessControl\Facades\AccessControlManagerFacade;
 use PoP\UserStateAccessControl\Services\AccessControlGroups;
 
-abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeResolverDecorator extends AbstractConfigurableAccessControlForDirectivesInPublicSchemaTypeResolverDecorator
+abstract class AbstractUserStateConfigurableAccessControlForDirectivesInPublicSchemaTypeResolverDecorator extends AbstractConfigurableAccessControlForDirectivesInPublicSchemaTypeResolverDecorator
 {
     protected function getConfigurationEntries(): array
     {
         $accessControlManager = AccessControlManagerFacade::getInstance();
         return $accessControlManager->getEntriesForDirectives(AccessControlGroups::STATE);
     }
-
-    abstract protected function getValidateUserStateDirectiveResolverClass(): string;
 
     protected function getMandatoryDirectives($entryValue = null): array
     {
@@ -28,4 +26,6 @@ abstract class AbstractValidateBasedOnUserStateForDirectivesPublicSchemaTypeReso
             $validateUserStateDirective,
         ];
     }
+
+    abstract protected function getValidateUserStateDirectiveResolverClass(): string;
 }
