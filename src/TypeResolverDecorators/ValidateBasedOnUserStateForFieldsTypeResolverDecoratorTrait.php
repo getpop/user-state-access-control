@@ -12,10 +12,5 @@ trait ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait
         return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
     }
 
-    protected function removeFieldNameBasedOnMatchingEntryValue($entryValue): bool
-    {
-        return $this->removeFieldNameBasedOnUserState((string)$entryValue);
-    }
-    abstract protected function removeFieldNameBasedOnUserState(string $state): bool;
     abstract protected function getValidateUserStateDirectiveResolverClass(): string;
 }

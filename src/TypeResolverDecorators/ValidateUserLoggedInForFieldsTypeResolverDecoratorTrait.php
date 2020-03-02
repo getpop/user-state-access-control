@@ -6,9 +6,9 @@ use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserLoggedInDirectiv
 
 trait ValidateUserLoggedInForFieldsTypeResolverDecoratorTrait
 {
-    protected function removeFieldNameBasedOnUserState(string $state): bool
+    protected function removeFieldNameBasedOnMatchingEntryValue(string $entryValue): bool
     {
-        return UserStates::IN == $state;
+        return UserStates::IN == $entryValue;
     }
     protected function getValidateUserStateDirectiveResolverClass(): string
     {

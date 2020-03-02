@@ -8,9 +8,8 @@ use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateBasedOnUserStateFo
 
 abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolverDecorator extends AbstractPublicSchemaTypeResolverDecorator
 {
-    use ConfigurableAccessControlForFieldsTypeResolverDecoratorTrait, ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait {
-        ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait::removeFieldNameBasedOnMatchingEntryValue insteadof ConfigurableAccessControlForFieldsTypeResolverDecoratorTrait;
-    }
+    use ConfigurableAccessControlForFieldsTypeResolverDecoratorTrait;
+    use ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait;
 
     protected function getMandatoryDirectives($entryValue = null): array
     {
