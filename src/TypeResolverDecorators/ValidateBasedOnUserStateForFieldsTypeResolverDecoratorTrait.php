@@ -15,7 +15,7 @@ trait ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait
         return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
     }
 
-    protected function removeFieldNameBasedOnCondition(array $states): bool
+    protected function removeFieldNameBasedOnMatchingEntryValues(array $states): bool
     {
         return $this->removeFieldNameBasedOnUserState($states);
     }

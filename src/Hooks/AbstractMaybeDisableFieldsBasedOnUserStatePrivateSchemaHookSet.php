@@ -19,7 +19,7 @@ abstract class AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet ex
         return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
     }
 
-    protected function removeFieldNameBasedOnCondition(array $configuredEntryStates): bool
+    protected function removeFieldNameBasedOnMatchingEntryValues(array $configuredEntryStates): bool
     {
         // Obtain the user state: logged in or not
         $userStateTypeDataResolver = UserStateTypeDataResolverFacade::getInstance();
