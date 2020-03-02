@@ -4,9 +4,9 @@ namespace PoP\UserStateAccessControl\Hooks;
 use PoP\UserState\Facades\UserStateTypeDataResolverFacade;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\FieldResolvers\FieldResolverInterface;
-use PoP\AccessControl\Hooks\AbstractMaybeDisableFieldsInPrivateSchemaHookSet;
+use PoP\AccessControl\Hooks\AbstractAccessControlForFieldsInPrivateSchemaHookSet;
 
-abstract class AbstractMaybeDisableFieldsIfUserNotLoggedInPrivateSchemaHookSet extends AbstractMaybeDisableFieldsInPrivateSchemaHookSet
+abstract class AbstractMaybeDisableFieldsIfUserNotLoggedInPrivateSchemaHookSet extends AbstractAccessControlForFieldsInPrivateSchemaHookSet
 {
     /**
      * Decide if to remove the fieldNames
