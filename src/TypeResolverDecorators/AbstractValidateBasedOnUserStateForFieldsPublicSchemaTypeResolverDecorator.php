@@ -14,10 +14,13 @@ abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolver
     protected function getMandatoryDirectives(): array
     {
         $fieldQueryInterpreter = FieldQueryInterpreterFacade::getInstance();
-        $validateUserStateDirective = $this->getValidateUserStateDirectiveResolverClass();
-        $validateUserStateDirectiveName = $validateUserStateDirective::getDirectiveName();
-        return $fieldQueryInterpreter->getDirective(
+        $validateUserStateDirectiveClass = $this->getValidateUserStateDirectiveResolverClass();
+        $validateUserStateDirectiveName = $validateUserStateDirectiveClass::getDirectiveName();
+        $validateUserStateDirective = $fieldQueryInterpreter->getDirective(
             $validateUserStateDirectiveName
         );
+        return [
+            $validateUserStateDirective,
+        ];
     }
 }
