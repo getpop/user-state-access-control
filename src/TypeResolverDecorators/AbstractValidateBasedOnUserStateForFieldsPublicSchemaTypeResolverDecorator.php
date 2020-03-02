@@ -3,12 +3,12 @@ namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
 use PoP\ComponentModel\Facades\Schema\FieldQueryInterpreterFacade;
 use PoP\AccessControl\TypeResolverDecorators\AbstractPublicSchemaTypeResolverDecorator;
-use PoP\AccessControl\TypeResolverDecorators\ValidateConditionForFieldsTypeResolverDecoratorTrait;
+use PoP\AccessControl\TypeResolverDecorators\ConfigurableAccessControlForFieldsTypeResolverDecoratorTrait;
 use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait;
 
 abstract class AbstractValidateBasedOnUserStateForFieldsPublicSchemaTypeResolverDecorator extends AbstractPublicSchemaTypeResolverDecorator
 {
-    use ValidateConditionForFieldsTypeResolverDecoratorTrait;
+    use ConfigurableAccessControlForFieldsTypeResolverDecoratorTrait;
     use ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait;
 
     protected function getMandatoryDirectives($entryValue = null): array

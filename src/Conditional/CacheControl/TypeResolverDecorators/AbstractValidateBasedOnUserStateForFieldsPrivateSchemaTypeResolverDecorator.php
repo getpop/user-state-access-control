@@ -3,12 +3,12 @@ namespace PoP\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecora
 
 use PoP\CacheControl\Helpers\CacheControlHelper;
 use PoP\AccessControl\TypeResolverDecorators\AbstractPublicSchemaTypeResolverDecorator;
-use PoP\AccessControl\TypeResolverDecorators\ValidateConditionForFieldsTypeResolverDecoratorTrait;
+use PoP\AccessControl\TypeResolverDecorators\ConfigurableAccessControlForFieldsTypeResolverDecoratorTrait;
 use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait;
 
 abstract class AbstractValidateBasedOnUserStateForFieldsPrivateSchemaTypeResolverDecorator extends AbstractPublicSchemaTypeResolverDecorator
 {
-    use ValidateConditionForFieldsTypeResolverDecoratorTrait;
+    use ConfigurableAccessControlForFieldsTypeResolverDecoratorTrait;
     use ValidateBasedOnUserStateForFieldsTypeResolverDecoratorTrait;
 
     protected function getMandatoryDirectives($entryValue = null): array
