@@ -3,7 +3,7 @@ namespace PoP\UserStateAccessControl\Hooks;
 
 use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
 
-class MaybeDisableFieldsIfUserLoggedInPrivateSchemaHookSet extends AbstractMaybeDisableFieldsBasedOnUserStatePrivateSchemaHookSet
+class DisableFieldIfUserIsLoggedInConfigurableAccessControlForFieldsInPrivateSchemaHookSet extends AbstractUserStateConfigurableAccessControlForFieldsInPrivateSchemaHookSet
 {
     protected function removeFieldNameBasedOnUserState(array $configuredEntryStates, bool $isUserLoggedIn): bool
     {
