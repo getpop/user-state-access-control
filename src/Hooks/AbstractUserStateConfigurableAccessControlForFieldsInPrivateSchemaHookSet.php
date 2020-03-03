@@ -19,7 +19,7 @@ abstract class AbstractUserStateConfigurableAccessControlForFieldsInPrivateSchem
         return $accessControlManager->getEntriesForFields(AccessControlGroups::STATE);
     }
 
-    protected function removeFieldNameBasedOnMatchingEntryValue($entryValue): bool
+    protected function removeFieldNameBasedOnMatchingEntryValue($entryValue = null): bool
     {
         // Obtain the user state: logged in or not
         $vars = Engine_Vars::getVars();

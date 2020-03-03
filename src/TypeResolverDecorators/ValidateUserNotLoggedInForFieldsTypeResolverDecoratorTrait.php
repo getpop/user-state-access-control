@@ -6,7 +6,7 @@ use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInDirec
 
 trait ValidateUserNotLoggedInForFieldsTypeResolverDecoratorTrait
 {
-    protected function removeFieldNameBasedOnMatchingEntryValue(string $entryValue): bool
+    protected function removeFieldNameBasedOnMatchingEntryValue($entryValue = null): bool
     {
         return UserStates::OUT == $entryValue;
     }
