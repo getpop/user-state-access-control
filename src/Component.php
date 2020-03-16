@@ -43,9 +43,9 @@ class Component extends AbstractComponent
      *
      * @return void
      */
-    public static function prematureBoot()
+    public static function beforeBoot()
     {
-        parent::prematureBoot();
+        parent::beforeBoot();
 
         // Initialize classes
         ContainerBuilderUtils::instantiateNamespaceServices(__NAMESPACE__.'\\Hooks');
@@ -57,16 +57,16 @@ class Component extends AbstractComponent
      *
      * @return void
      */
-    public static function lateBoot()
+    public static function afterBoot()
     {
-        parent::lateBoot();
+        parent::afterBoot();
 
         // Initialize classes
         ContainerBuilderUtils::attachTypeResolverDecoratorsFromNamespace(__NAMESPACE__.'\\TypeResolverDecorators');
 
         // Boot conditional on API package being installed
         if (class_exists('\PoP\CacheControl\Component')) {
-            \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::lateBoot();
+            \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::afterBoot();
         }
     }
 }
