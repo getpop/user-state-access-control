@@ -9,7 +9,8 @@ use PoP\ComponentModel\DirectiveResolvers\AbstractValidateCheckpointDirectiveRes
 class ValidateIsUserLoggedInDirectiveResolver extends AbstractValidateCheckpointDirectiveResolver
 {
     const DIRECTIVE_NAME = 'validateIsUserLoggedIn';
-    public static function getDirectiveName(): string {
+    public static function getDirectiveName(): string
+    {
         return self::DIRECTIVE_NAME;
     }
 
