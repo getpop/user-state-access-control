@@ -1,7 +1,7 @@
 <?php
 namespace PoP\UserStateAccessControl\Hooks;
 
-use PoP\ComponentModel\Engine_Vars;
+use PoP\ComponentModel\State\ApplicationState;
 use PoP\AccessControl\Hooks\AbstractAccessControlForFieldsInPrivateSchemaHookSet;
 
 abstract class AbstractDisableFieldsIfUserIsLoggedInAccessControlForFieldsInPrivateSchemaHookSet extends AbstractAccessControlForFieldsInPrivateSchemaHookSet
@@ -16,7 +16,7 @@ abstract class AbstractDisableFieldsIfUserIsLoggedInAccessControlForFieldsInPriv
         /**
          * If the user is logged in, then do not register field names
          */
-        $vars = Engine_Vars::getVars();
+        $vars = ApplicationState::getVars();
         return $vars['global-userstate']['is-user-logged-in'];
     }
 }
