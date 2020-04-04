@@ -2,7 +2,7 @@
 namespace PoP\UserStateAccessControl\TypeResolverDecorators;
 
 use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
-use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInDirectiveResolver;
+use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInForDirectivesDirectiveResolver;
 
 trait ValidateUserNotLoggedInForDirectivesTypeResolverDecoratorTrait
 {
@@ -12,6 +12,6 @@ trait ValidateUserNotLoggedInForDirectivesTypeResolverDecoratorTrait
     }
     protected function getValidateUserStateDirectiveResolverClass(): string
     {
-        return ValidateIsUserNotLoggedInDirectiveResolver::class;
+        return ValidateIsUserNotLoggedInForDirectivesDirectiveResolver::class;
     }
 }

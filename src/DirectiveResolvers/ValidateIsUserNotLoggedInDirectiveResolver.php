@@ -22,8 +22,11 @@ class ValidateIsUserNotLoggedInDirectiveResolver extends AbstractValidateCheckpo
     protected function getValidationFailedMessage(TypeResolverInterface $typeResolver, array $failedDataFields): string
     {
         $translationAPI = TranslationAPIFacade::getInstance();
+        $errorMessage = $this->isValidatingDirective() ?
+            $translationAPI->__('You must not be logged in to access directives in field(s) \'%s\'', 'user-state') :
+            $translationAPI->__('You must not be logged in to access field(s) \'%s\'', 'user-state');
         return sprintf(
-            $translationAPI->__('You must not be logged in to access field(s) \'%s\'', 'user-state'),
+            $errorMessage,
             implode(
                 $translationAPI->__('\', \''),
                 $failedDataFields

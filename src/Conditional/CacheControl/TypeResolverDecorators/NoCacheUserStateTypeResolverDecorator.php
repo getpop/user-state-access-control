@@ -6,7 +6,9 @@ use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\TypeResolverDecorators\AbstractTypeResolverDecorator;
 use PoP\CacheControl\Helpers\CacheControlHelper;
 use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserLoggedInDirectiveResolver;
+use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserLoggedInForDirectivesDirectiveResolver;
 use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInDirectiveResolver;
+use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserNotLoggedInForDirectivesDirectiveResolver;
 
 class NoCacheUserStateTypeResolverDecorator extends AbstractTypeResolverDecorator
 {
@@ -30,7 +32,13 @@ class NoCacheUserStateTypeResolverDecorator extends AbstractTypeResolverDecorato
             ValidateIsUserLoggedInDirectiveResolver::getDirectiveName() => [
                 $noCacheControlDirective,
             ],
+            ValidateIsUserLoggedInForDirectivesDirectiveResolver::getDirectiveName() => [
+                $noCacheControlDirective,
+            ],
             ValidateIsUserNotLoggedInDirectiveResolver::getDirectiveName() => [
+                $noCacheControlDirective,
+            ],
+            ValidateIsUserNotLoggedInForDirectivesDirectiveResolver::getDirectiveName() => [
                 $noCacheControlDirective,
             ],
         ];
