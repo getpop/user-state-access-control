@@ -1,4 +1,7 @@
 <?php
+
+declare(strict_types=1);
+
 namespace PoP\UserStateAccessControl\DirectiveResolvers;
 
 class ValidateIsUserLoggedInForDirectivesDirectiveResolver extends ValidateIsUserLoggedInDirectiveResolver
