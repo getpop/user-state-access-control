@@ -1,2 +1,2 @@
 <?php
-\PoP\UserStateAccessControl\Component::init();
+//\PoP\UserStateAccessControl\Component::initialize();
