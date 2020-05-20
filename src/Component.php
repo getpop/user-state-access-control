@@ -51,7 +51,7 @@ class Component extends AbstractComponent
 
             // Init conditional on API package being installed
             if (class_exists('\PoP\CacheControl\Component')) {
-                \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::init();
+                \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::initialize();
             }
         }
     }
