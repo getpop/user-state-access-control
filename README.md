@@ -20,12 +20,13 @@ Via Composer
 composer require getpop/user-state-access-control
 ```
 
-<!--
 ## Usage
 
+Initialize the component:
+
 ``` php
+\PoP\UserStateAccessControl\Component::initialize();
 ```
--->
 
 ## Standards
 
