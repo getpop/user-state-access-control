@@ -48,10 +48,11 @@ class Component extends AbstractComponent
             parent::doInitialize($skipSchema);
             self::$COMPONENT_DIR = dirname(__DIR__);
             self::initYAMLServices(self::$COMPONENT_DIR);
+            self::maybeInitYAMLSchemaServices(self::$COMPONENT_DIR, $skipSchema);
 
             // Init conditional on API package being installed
             if (class_exists('\PoP\CacheControl\Component')) {
-                \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::initialize();
+                \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::initialize($skipSchema);
             }
         }
     }

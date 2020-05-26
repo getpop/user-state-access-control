@@ -1,0 +1,4 @@
+services:
+    PoP\UserStateAccessControl\DirectiveResolvers\:
+        resource: '../src/DirectiveResolvers/*'
+        public: true
