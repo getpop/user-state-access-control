@@ -25,7 +25,9 @@ composer require getpop/user-state-access-control
 Initialize the component:
 
 ``` php
-\PoP\UserStateAccessControl\Component::initialize();
+\PoP\Root\ComponentLoader::initializeComponents([
+    \PoP\UserStateAccessControl\Component::class,
+]);
 ```
 
 ## Standards
