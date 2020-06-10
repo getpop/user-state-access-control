@@ -54,7 +54,9 @@ class Component extends AbstractComponent
             self::maybeInitYAMLSchemaServices(self::$COMPONENT_DIR, $skipSchema);
 
             // Init conditional on API package being installed
-            if (class_exists('\PoP\CacheControl\Component')) {
+            if (class_exists('\PoP\CacheControl\Component')
+                && !in_array(\PoP\CacheControl\Component::class, $skipSchemaComponentClasses)
+            ) {
                 \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::initialize(
                     $configuration,
                     $skipSchema
