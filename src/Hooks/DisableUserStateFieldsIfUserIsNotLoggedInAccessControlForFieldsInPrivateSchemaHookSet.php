@@ -13,18 +13,15 @@ use PoP\AccessControl\Hooks\AbstractAccessControlForFieldsHookSet;
 
 class DisableUserStateFieldsIfUserIsNotLoggedInAccessControlForFieldsInPrivateSchemaHookSet extends AbstractAccessControlForFieldsHookSet
 {
+    /**
+     * If the user is not logged in, and we are in private mode,
+     * then remove the field
+     */
     protected function enabled(): bool
     {
-        return ComponentConfiguration::usePrivateSchemaMode() && !$this->isUserLoggedIn();
-    }
-
-    protected function isUserLoggedIn(): bool
-    {
-        /**
-         * If the user is not logged in, then remove the field
-         */
         $vars = ApplicationState::getVars();
-        return $vars['global-userstate']['is-user-logged-in'];
+        $isUserLoggedIn = $vars['global-userstate']['is-user-logged-in'];
+        return ComponentConfiguration::usePrivateSchemaMode() && !$isUserLoggedIn;
     }
 
     /**
