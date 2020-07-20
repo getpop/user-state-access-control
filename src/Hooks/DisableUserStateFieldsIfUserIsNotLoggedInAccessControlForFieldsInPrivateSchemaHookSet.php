@@ -4,16 +4,27 @@ declare(strict_types=1);
 
 namespace PoP\UserStateAccessControl\Hooks;
 
+use PoP\AccessControl\ComponentConfiguration;
+use PoP\ComponentModel\State\ApplicationState;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\FieldResolvers\FieldResolverInterface;
 use PoP\UserState\FieldResolvers\AbstractUserStateFieldResolver;
-use PoP\UserStateAccessControl\Hooks\AbstractDisableFieldsIfUserIsNotLoggedInAccessControlForFieldsInPrivateSchemaHookSet;
+use PoP\AccessControl\Hooks\AbstractAccessControlForFieldsHookSet;
 
-class DisableUserStateFieldsIfUserIsNotLoggedInAccessControlForFieldsInPrivateSchemaHookSet extends AbstractDisableFieldsIfUserIsNotLoggedInAccessControlForFieldsInPrivateSchemaHookSet
+class DisableUserStateFieldsIfUserIsNotLoggedInAccessControlForFieldsInPrivateSchemaHookSet extends AbstractAccessControlForFieldsHookSet
 {
     protected function enabled(): bool
     {
-        return parent::enabled() && !$this->isUserLoggedIn();
+        return ComponentConfiguration::usePrivateSchemaMode() && !$this->isUserLoggedIn();
+    }
+
+    protected function isUserLoggedIn(): bool
+    {
+        /**
+         * If the user is not logged in, then remove the field
+         */
+        $vars = ApplicationState::getVars();
+        return $vars['global-userstate']['is-user-logged-in'];
     }
 
     /**
