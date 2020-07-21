@@ -19,8 +19,12 @@ abstract class AbstractDisableFieldsIfUserIsNotLoggedInAccessControlForFieldsInP
      * @param string $fieldName
      * @return boolean
      */
-    protected function removeFieldName(TypeResolverInterface $typeResolver, FieldResolverInterface $fieldResolver, string $fieldName): bool
-    {
+    protected function removeFieldName(
+        TypeResolverInterface $typeResolver,
+        FieldResolverInterface $fieldResolver,
+        array $fieldInterfaceResolverClasses,
+        string $fieldName
+    ): bool {
         /**
          * If the user is not logged in, then remove the field
          */
