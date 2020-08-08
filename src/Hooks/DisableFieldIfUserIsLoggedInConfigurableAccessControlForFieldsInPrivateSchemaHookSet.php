@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\Hooks;
+namespace PoPSchema\UserStateAccessControl\Hooks;
 
-use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
+use PoPSchema\UserStateAccessControl\ConfigurationEntries\UserStates;
 
 class DisableFieldIfUserIsLoggedInConfigurableAccessControlForFieldsInPrivateSchemaHookSet extends AbstractUserStateConfigurableAccessControlForFieldsInPrivateSchemaHookSet
 {

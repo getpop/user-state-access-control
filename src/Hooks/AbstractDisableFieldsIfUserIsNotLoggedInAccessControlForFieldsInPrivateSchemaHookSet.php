@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\Hooks;
+namespace PoPSchema\UserStateAccessControl\Hooks;
 
 use PoP\ComponentModel\State\ApplicationState;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;

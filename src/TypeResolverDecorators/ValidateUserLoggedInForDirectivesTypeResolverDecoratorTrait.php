@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\TypeResolverDecorators;
+namespace PoPSchema\UserStateAccessControl\TypeResolverDecorators;
 
-use PoP\UserStateAccessControl\ConfigurationEntries\UserStates;
-use PoP\UserStateAccessControl\DirectiveResolvers\ValidateIsUserLoggedInForDirectivesDirectiveResolver;
+use PoPSchema\UserStateAccessControl\ConfigurationEntries\UserStates;
+use PoPSchema\UserStateAccessControl\DirectiveResolvers\ValidateIsUserLoggedInForDirectivesDirectiveResolver;
 
 trait ValidateUserLoggedInForDirectivesTypeResolverDecoratorTrait
 {

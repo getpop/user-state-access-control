@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\TypeResolverDecorators;
+namespace PoPSchema\UserStateAccessControl\TypeResolverDecorators;
 
 use PoP\ComponentModel\Facades\Schema\FieldQueryInterpreterFacade;
 

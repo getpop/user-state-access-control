@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl;
+namespace PoPSchema\UserStateAccessControl;
 
 class Environment
 {

@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecorators;
+namespace PoPSchema\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecorators;
 
 use PoP\CacheControl\Helpers\CacheControlHelper;
 

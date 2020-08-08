@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\TypeResolverDecorators;
+namespace PoPSchema\UserStateAccessControl\TypeResolverDecorators;
 
-use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateUserLoggedInForDirectivesTypeResolverDecoratorTrait;
+use PoPSchema\UserStateAccessControl\TypeResolverDecorators\ValidateUserLoggedInForDirectivesTypeResolverDecoratorTrait;
 
 class ValidateUserLoggedInForDirectivesPublicSchemaTypeResolverDecorator extends AbstractUserStateConfigurableAccessControlForDirectivesInPublicSchemaTypeResolverDecorator
 {

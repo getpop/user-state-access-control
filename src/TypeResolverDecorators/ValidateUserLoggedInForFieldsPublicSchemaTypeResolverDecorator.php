@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\TypeResolverDecorators;
+namespace PoPSchema\UserStateAccessControl\TypeResolverDecorators;
 
-use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateUserLoggedInForFieldsTypeResolverDecoratorTrait;
+use PoPSchema\UserStateAccessControl\TypeResolverDecorators\ValidateUserLoggedInForFieldsTypeResolverDecoratorTrait;
 
 class ValidateUserLoggedInForFieldsPublicSchemaTypeResolverDecorator extends AbstractUserStateConfigurableAccessControlForFieldsInPublicSchemaTypeResolverDecorator
 {

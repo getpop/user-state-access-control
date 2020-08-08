@@ -2,9 +2,9 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecorators;
+namespace PoPSchema\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecorators;
 
-use PoP\UserStateAccessControl\TypeResolverDecorators\ValidateUserNotLoggedInForFieldsTypeResolverDecoratorTrait;
+use PoPSchema\UserStateAccessControl\TypeResolverDecorators\ValidateUserNotLoggedInForFieldsTypeResolverDecoratorTrait;
 
 class ValidateUserNotLoggedInForFieldsPrivateSchemaTypeResolverDecorator extends AbstractNoCacheConfigurableAccessControlForFieldsInPrivateSchemaTypeResolverDecorator
 {

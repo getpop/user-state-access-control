@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl;
+namespace PoPSchema\UserStateAccessControl;
 
 use PoP\AccessControl\Component as AccessControlComponent;
 use PoP\Root\Component\AbstractComponent;
@@ -22,7 +22,7 @@ class Component extends AbstractComponent
     public static function getDependedComponentClasses(): array
     {
         return [
-            \PoP\UserState\Component::class,
+            \PoPSchema\UserState\Component::class,
             \PoP\AccessControl\Component::class,
         ];
     }
@@ -57,7 +57,7 @@ class Component extends AbstractComponent
             if (class_exists('\PoP\CacheControl\Component')
                 && !in_array(\PoP\CacheControl\Component::class, $skipSchemaComponentClasses)
             ) {
-                \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::initialize(
+                \PoPSchema\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::initialize(
                     $configuration,
                     $skipSchema
                 );
@@ -98,7 +98,7 @@ class Component extends AbstractComponent
 
         // Boot conditional on API package being installed
         if (class_exists('\PoP\CacheControl\Component')) {
-            \PoP\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::afterBoot();
+            \PoPSchema\UserStateAccessControl\Conditional\CacheControl\ConditionalComponent::afterBoot();
         }
     }
 }

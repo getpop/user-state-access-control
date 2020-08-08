@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\DirectiveResolvers;
+namespace PoPSchema\UserStateAccessControl\DirectiveResolvers;
 
 class ValidateIsUserNotLoggedInForDirectivesDirectiveResolver extends ValidateIsUserNotLoggedInDirectiveResolver
 {

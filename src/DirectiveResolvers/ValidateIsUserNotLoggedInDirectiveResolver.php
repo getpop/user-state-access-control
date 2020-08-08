@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\DirectiveResolvers;
+namespace PoPSchema\UserStateAccessControl\DirectiveResolvers;
 
 use PoP\Translation\Facades\TranslationAPIFacade;
-use PoP\UserState\CheckpointSets\UserStateCheckpointSets;
+use PoPSchema\UserState\CheckpointSets\UserStateCheckpointSets;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\DirectiveResolvers\AbstractValidateCheckpointDirectiveResolver;
 

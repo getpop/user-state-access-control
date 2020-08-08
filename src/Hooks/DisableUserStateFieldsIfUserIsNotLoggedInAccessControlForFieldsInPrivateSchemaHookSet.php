@@ -2,13 +2,13 @@
 
 declare(strict_types=1);
 
-namespace PoP\UserStateAccessControl\Hooks;
+namespace PoPSchema\UserStateAccessControl\Hooks;
 
 use PoP\AccessControl\ComponentConfiguration;
 use PoP\ComponentModel\State\ApplicationState;
 use PoP\ComponentModel\TypeResolvers\TypeResolverInterface;
 use PoP\ComponentModel\FieldResolvers\FieldResolverInterface;
-use PoP\UserState\FieldResolvers\AbstractUserStateFieldResolver;
+use PoPSchema\UserState\FieldResolvers\AbstractUserStateFieldResolver;
 use PoP\AccessControl\Hooks\AbstractAccessControlForFieldsHookSet;
 
 class DisableUserStateFieldsIfUserIsNotLoggedInAccessControlForFieldsInPrivateSchemaHookSet extends AbstractAccessControlForFieldsHookSet
