@@ -1,13 +1,10 @@
 services:
     _defaults:
-        bind:
-            PoP\Hooks\HooksAPIInterface: '@hooks_api'
-            PoP\Translation\TranslationAPIInterface: '@translation_api'
+        public: true
+        autowire: true
 
     PoPSchema\UserStateAccessControl\TypeResolverDecorators\:
         resource: '../src/TypeResolverDecorators/*'
-        public: true
 
     PoPSchema\UserStateAccessControl\Hooks\:
         resource: '../src/Hooks/*'
-        public: true
