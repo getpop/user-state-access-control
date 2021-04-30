@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace PoPSchema\UserStateAccessControl\Conditional\CacheControl\TypeResolverDecorators;
+namespace PoPSchema\UserStateAccessControl\ConditionalOnComponent\CacheControl\TypeResolverDecorators;
 
 use PoP\AccessControl\TypeResolverDecorators\AbstractConfigurableAccessControlForFieldsInPrivateSchemaTypeResolverDecorator;
 use PoP\AccessControl\Facades\AccessControlManagerFacade;
